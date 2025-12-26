@@ -1,0 +1,21 @@
+header {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+}
+
+.text-container {
+  width: 420px;
+  overflow-wrap: break-word;
+}
+
+.image-container {
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  object-fit: contain;
+}
