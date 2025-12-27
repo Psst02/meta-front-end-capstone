@@ -1,0 +1,48 @@
+article {
+  width: 200px;
+  margin: 0;
+  padding: 0;
+  border-radius: 16px 16px 0 0;
+  background-color: #EDEFEE;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+article:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px gray;
+  transform: scale(1.05);
+}
+
+article img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.text-content {
+  width: 100%;
+  height: auto;
+  padding: 0 1rem;
+  text-align: start;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header > h3 {
+  font-size: 1.1rem;
+}
+
+.card-header > p {
+  font-weight: 500;
+  color: #EE9972;
+}
+
+.text-content > p:last-child {
+  font-weight: 700;
+}
+

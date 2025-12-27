@@ -1,21 +1,42 @@
 header {
+  width: 100%;
   display: flex;
-  align-items: start;
-  gap: 20px;
+  justify-content: center;
+  background-color: #495E57;
+  color: white;
 }
 
-.text-container {
-  width: 420px;
-  overflow-wrap: break-word;
+header > div {
+  width: 100%;
+  max-width: 730px;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
 }
 
-.image-container {
-  width: 200px;
-  height: 250px;
+header section {
+  flex: 1 1 280px;
+  text-align: start;
+}
+
+header section div {
+  margin-bottom: 3rem;
+}
+
+header figure {
+  flex: 0 0 230px;
+  max-height: 250px;
+  max-width: 100%;
+  margin: 0;
+  border-radius: 16px;
   overflow: hidden;
 }
 
-.image-container img {
+header figure img {
   width: 100%;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }

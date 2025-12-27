@@ -1,0 +1,22 @@
+section:first-child {
+  margin: 30px auto;
+  max-width: 730px;
+}
+
+.highlights-header {
+  display: flex;
+  margin: 1rem;
+  justify-content: space-between;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+section:nth-child(2) {
+  background-color: #FBDABB;
+}
