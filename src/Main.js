@@ -1,6 +1,7 @@
 import './Main.css';
 import Button from './components/Button.js';
 import Card from './components/Card.js';
+import Testimonial from './components/Testimonial.js';
 
 import bruschetta from './food images/bruschetta.svg';
 import greekSalad from './food images/greek salad.jpg';
@@ -28,6 +29,8 @@ export default function Main() {
         },
     ];
 
+    const testimonials = [];
+
     return(
         <main>
           <section aria-label="Highlights">
@@ -36,22 +39,29 @@ export default function Main() {
               <Button text="Open Menu" />
             </div>
             <div className="card-container">
-                {specials.map(dish => (
-                    <Card key={dish.title}
-                      url={dish.url}
-                      title={dish.title}
-                      price={dish.price}
-                      description={dish.description}
-                    />
-                ))
-                }
+              {specials.map(dish => (
+                  <Card key={dish.title}
+                    url={dish.url}
+                    title={dish.title}
+                    price={dish.price}
+                    description={dish.description}
+                  />
+              ))
+              }
             </div>
           </section>
           <section aria-label="Testimonials">
             <h2>Testimonials</h2>
+            <div className="testimonials">
+              {
+
+              }
+            </div>
           </section>
           <section aria-label="About">
-
+            <h2>Little Lemon</h2>
+            <h3>Chicago</h3>
+            <p></p>
           </section>
         </main>
     );

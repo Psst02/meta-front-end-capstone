@@ -9,19 +9,21 @@ header {
 header > div {
   width: 100%;
   max-width: 730px;
-  padding: 1.5rem 1rem;
+  padding: 0 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  align-items: center;
+  align-items: start;
 }
 
 header section {
   flex: 1 1 280px;
+  margin-top: 30px;
   text-align: start;
 }
 
-header section div {
+header section div p {
+  margin-top: 1rem;
   margin-bottom: 3rem;
 }
 
@@ -29,7 +31,7 @@ header figure {
   flex: 0 0 230px;
   max-height: 250px;
   max-width: 100%;
-  margin: 0;
+  margin: 30px 0;
   border-radius: 16px;
   overflow: hidden;
 }

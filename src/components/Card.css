@@ -1,36 +1,43 @@
-article {
+.card {
   width: 200px;
-  margin: 0;
-  padding: 0;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
   border-radius: 16px 16px 0 0;
   background-color: #EDEFEE;
   overflow: hidden;
   transition: 0.5s;
 }
 
-article:hover {
+.card:hover {
   cursor: pointer;
   box-shadow: 0 0 10px gray;
   transform: scale(1.05);
 }
 
-article img {
+.card img {
   width: 100%;
   height: 150px;
   object-fit: cover;
 }
 
 .text-content {
-  width: 100%;
-  height: auto;
-  padding: 0 1rem;
+  flex: 1;
   text-align: start;
+  padding: 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-content > * {
+  margin-top: 0;
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 1rem 0;
 }
 
 .card-header > h3 {
@@ -43,6 +50,7 @@ article img {
 }
 
 .text-content > p:last-child {
+  margin-top: auto;
   font-weight: 700;
 }
 

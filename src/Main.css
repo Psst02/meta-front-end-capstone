@@ -1,4 +1,4 @@
-section:first-child {
+main section:first-child {
   margin: 30px auto;
   max-width: 730px;
 }
@@ -17,6 +17,6 @@ section:first-child {
   margin: 1.5rem 0;
 }
 
-section:nth-child(2) {
+main section:nth-child(2) {
   background-color: #FBDABB;
 }

@@ -10,7 +10,7 @@ export default function Footer() {
         </div>
 
         <nav aria-label="Footer navigation">
-          <h4>Navigation</h4>
+          <h4 className="section-title">Navigation</h4>
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
@@ -22,7 +22,7 @@ export default function Footer() {
         </nav>
 
         <address>
-          <h4>Contact</h4>
+          <h4 className="section-title">Contact</h4>
           <ul>
             <li><a href="#">Our Location</a></li>
             <li><a href="#">+1-773-123-4567</a></li>
@@ -31,7 +31,7 @@ export default function Footer() {
         </address>
 
         <nav aria-label="Social media links">
-          <h4>Social Media Links</h4>
+          <h4 className="section-title">Social Media Links</h4>
           <ul>
             <li><a href="#">Instagram</a></li>
             <li><a href="#">Facebook</a></li>

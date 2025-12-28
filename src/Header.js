@@ -1,7 +1,6 @@
 import './Header.css';
 import image from './foodPlatter.jpg';
 import Button from './components/Button.js';
-import Title from './components/Title.js';
 
 export default function Header() {
   return (
@@ -9,7 +8,8 @@ export default function Header() {
       <div aria-label="Hero">
         <section>
           <div>
-            <Title />
+            <h1 style={{ color: "#F4CE14" }}>Little Lemon</h1>
+            <h2>Chicago</h2>
             <p>
               We are a family owned Mediterranean restaurant, focused on traditional
               recipes served with a modern twist.
