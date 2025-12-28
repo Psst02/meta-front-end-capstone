@@ -8,8 +8,8 @@ export default function Header() {
       <div aria-label="Hero">
         <section>
           <div>
-            <h1 style={{ color: "#F4CE14" }}>Little Lemon</h1>
-            <h2>Chicago</h2>
+            <h1 className="shop-name">Little Lemon</h1>
+            <h2 className="shop-loc">Chicago</h2>
             <p>
               We are a family owned Mediterranean restaurant, focused on traditional
               recipes served with a modern twist.

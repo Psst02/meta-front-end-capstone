@@ -8,7 +8,7 @@ footer {
 
 .footer-container {
   width: 100%;
-  max-width: 730px;
+  max-width: 860px;
   padding: 20px 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -35,6 +35,10 @@ footer h4 {
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 1rem;
+}
+
+footer li {
+  height: 1.5rem;
 }
 
 footer a {

@@ -1,11 +1,13 @@
-main section:first-child {
-  margin: 30px auto;
-  max-width: 730px;
+.highlights {
+  padding: 50px 0;
+  margin: 0 auto;
+  max-width: 860px;
 }
 
 .highlights-header {
   display: flex;
-  margin: 1rem;
+  margin: 0 1rem;
+  margin-bottom: 30px;
   justify-content: space-between;
 }
 
@@ -13,10 +15,88 @@ main section:first-child {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-  margin: 1.5rem 0;
+  gap: 20px;
 }
 
-main section:nth-child(2) {
+.testimonials {
+  padding: 50px 0;
+  margin: 0 auto;
   background-color: #FBDABB;
+}
+
+main section:nth-child(2) h2 {
+  margin-bottom: 30px;
+}
+
+.review-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.about {
+  width: 100%;
+  display: flex;
+  padding: 50px 0;
+  justify-content: center;
+  background-color: #495E57;
+  color: white;
+}
+
+.about > div {
+  width: 100%;
+  padding: 0 1rem;
+  max-width: 860px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: start;
+}
+
+.about > div section {
+  flex: 1 1 280px;
+  text-align: start;
+}
+
+.about > div section p {
+  margin-top: 1rem;
+}
+
+.photo-stack {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+}
+
+.photo {
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 0 10px black;
+  transition: 0.3s;
+}
+
+.photo-back {
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.photo-back:hover {
+  z-index: 3;
+}
+
+.photo-front {
+  bottom: 70px;
+  left: 70px;
+  z-index: 2;
+}
+
+.photo:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }

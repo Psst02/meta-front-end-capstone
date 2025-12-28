@@ -16,7 +16,7 @@ code {
     monospace;
 }
 
-h1, h2 {
+h1, h2, .shop-loc {
   font-family: 'Markazi Text', serif;
 }
 
@@ -24,6 +24,15 @@ h1 {
   font-size: 3.3rem;
 }
 
-h2 {
+h2, .shop-loc {
   font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+.shop-name {
+  color: #F4CE14;
+  font-size: 3.3rem;
 }

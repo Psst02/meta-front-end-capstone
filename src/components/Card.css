@@ -1,6 +1,6 @@
 .card {
-  width: 200px;
-  min-height: 400px;
+  width: 240px;
+  min-height: 370px;
   display: flex;
   flex-direction: column;
   border-radius: 16px 16px 0 0;
@@ -29,19 +29,11 @@
   flex-direction: column;
 }
 
-.text-content > * {
-  margin-top: 0;
-}
-
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 1rem 0;
-}
-
-.card-header > h3 {
-  font-size: 1.1rem;
 }
 
 .card-header > p {
