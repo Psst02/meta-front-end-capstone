@@ -29,8 +29,8 @@ export default function Main() {
     return(
       <>
         <Routes>
-          <Route path="/home" element={<Homepage />} />
-          <Route path="/"
+          <Route path="/" element={<Homepage />} />
+          <Route path="/booking"
             element=
               {<BookingPage
                 availableTimes={availableTimes}

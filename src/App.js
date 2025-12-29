@@ -7,11 +7,11 @@ import Footer from './structure/Footer.js';
 function App() {
   return (
     <>
-      <Nav/>
       <BrowserRouter>
+        <Nav/>
         <Main/>
+        <Footer/>
       </BrowserRouter>
-      <Footer/>
     </>
   );
 }

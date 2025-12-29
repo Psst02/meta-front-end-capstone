@@ -1,30 +1,97 @@
-nav {
-  margin: 0 1rem;
+.top-nav {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 4rem;
-  padding: 10px 0;
+  margin: 0 auto;
+  max-width: 860px;
+  justify-content: space-between;
+  padding: 0.75rem;
+}
+
+.top-nav img {
+  height: 40px;
 }
 
 .nav-links {
-  display: flex;
   list-style: none;
   margin: 0;
-  gap: 20px;
+  padding: 0;
 }
 
 .nav-links a {
   color: black;
   font-weight: 700;
   text-decoration: none;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 16px;
-  transition: 0.1s;
+  transition: background-color 0.15s, color 0.15s;
 }
 
-.nav-links a:hover, .nav-links a:focus{
-  color: white;
+.nav-links.desktop {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links.desktop a {
+  padding: 0.5rem 0.75rem;
+  border-radius: 16px;
+}
+
+.nav-links.desktop a:hover,
+.nav-links.desktop a:focus {
   background-color: #EE9972;
+  color: white;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  padding: 0.5rem;
+}
+
+.side-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background: white;
+  z-index: 1000;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.side-nav.open {
+  transform: translateX(0);
+}
+
+.nav-links.mobile {
+  margin-top: 3rem;
+}
+
+.nav-links.mobile li {
+  padding: 1rem;
+}
+
+.nav-links.mobile a:hover,
+.nav-links.mobile a:focus {
+  text-decoration: underline;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+@media (max-width: 860px) {
+  .nav-links.desktop {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: grid;
+    place-items: middle;
+  }
 }

@@ -29,7 +29,7 @@ export default function BookingForm({ availableTimes, dispatch }) {
               onChange={e => setTime(e.target.value)}
               required
             >
-              <option value="" disabled selected hidden>
+              <option value="" disabled hidden>
                 Select a Time
               </option>
               {availableTimes.map(time => (
@@ -53,7 +53,7 @@ export default function BookingForm({ availableTimes, dispatch }) {
               onChange={e => setOccasion(e.target.value)}
               required
             >
-              <option value="" disabled selected hidden>
+              <option value="" disabled hidden>
                 Occasion
               </option>
               <option value="Birthday">Birthday</option>
