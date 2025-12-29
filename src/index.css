@@ -41,3 +41,35 @@ h3, .section-title {
 p {
   line-height: 1.5rem;
 }
+
+.preset-btn {
+  min-width: 180px;
+  height: 35px;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 16px;
+  background-color: #F4CE14;
+  cursor: pointer;
+  transition: 0.1s;
+
+  font-size: 1rem;
+  font-family: 'Karla', sans-serif;
+  font-weight: 500;
+}
+
+.preset-btn:hover, .preset-btn:focus {
+  color: white;
+  background-color: #EE9972;
+  transform: scale(1.05);
+}
+
+.preset-btn:active {
+  color: black;
+  background-color: #FBDABB;
+}
+
+*:focus {
+  border: none;
+  outline: 2px solid #EE9972;
+  outline-offset: 1px;
+}

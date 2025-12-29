@@ -1,6 +1,5 @@
 import './CallToAction.css';
 import image from '../../food images/foodPlatter.jpg';
-import Button from '../../components/Button.js';
 
 export default function CallToAction() {
   return (
@@ -13,7 +12,7 @@ export default function CallToAction() {
             We are a family owned Mediterranean restaurant, focused on traditional
             recipes served with a modern twist.
           </p>
-          <Button text="Reserve a Table" />
+          <button className="preset-btn">Reserve a Table</button>
         </section>
         <figure>
           <img src={image} alt="Food platter served at Little Lemon" />

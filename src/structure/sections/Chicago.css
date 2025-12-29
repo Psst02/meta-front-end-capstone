@@ -39,7 +39,7 @@
   height: 250px;
   object-fit: cover;
   border-radius: 16px;
-  box-shadow: 0 0 10px black;
+  box-shadow: 0 0 20px #404040;
   transition: 0.3s;
 }
 

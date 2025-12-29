@@ -1,6 +1,5 @@
 import './Specials.css';
 
-import Button from '../../components/Button.js';
 import Card from '../../components/Card.js';
 
 import bruschetta from '../../food images/bruschetta.svg';
@@ -33,7 +32,7 @@ export default function Specials() {
         <section className="highlights" id="highlights">
           <header>
             <h2>Specials</h2>
-            <Button text="Open Menu" />
+            <button className="preset-btn">Open Menu</button>
           </header>
           <ul>
             {specials.map(dish => (
