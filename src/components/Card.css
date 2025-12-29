@@ -1,6 +1,6 @@
 .card {
   width: 240px;
-  min-height: 370px;
+  min-height: 420px;
   display: flex;
   flex-direction: column;
   border-radius: 16px 16px 0 0;
@@ -29,14 +29,14 @@
   flex-direction: column;
 }
 
-.card-header {
+.card header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 1rem 0;
 }
 
-.card-header > p {
+.price {
   font-weight: 500;
   color: #EE9972;
 }

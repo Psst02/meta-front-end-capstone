@@ -2,17 +2,19 @@ import './Card.css';
 
 export default function Card({ url, title, price, description }) {
     return (
-        <article className="card" aria-label="Food card">
+        <article className="card">
           <img src={url} alt={title}/>
           <div className="text-content">
-            <div className="card-header" aria-label="Card header">
-              <h3 aria-label="Food name">{title}</h3>
-              <p aria-label="Price">${price}</p>
-            </div>
-            <p aria-label="Food description">{description}</p>
+            <header>
+              <h3>{title}</h3>
+              <p className="price">${price}</p>
+            </header>
+            <p>{description}</p>
             <p>
-              Order Delivery&nbsp;&nbsp;
-              <span><i className="fa-solid fa-person-biking"></i></span>
+              Order Delivery&ensp;
+              <span>
+                <i className="fa-solid fa-person-biking" aria-hidden="true"></i>
+              </span>
             </p>
           </div>
         </article>

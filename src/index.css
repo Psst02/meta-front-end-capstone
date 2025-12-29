@@ -28,11 +28,16 @@ h2, .shop-loc {
   font-size: 2rem;
 }
 
-h3 {
+h3, .section-title {
+  font-weight: 700;
   font-size: 1.1rem;
 }
 
 .shop-name {
   color: #F4CE14;
   font-size: 3.3rem;
+}
+
+p {
+  line-height: 1.5rem;
 }

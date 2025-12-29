@@ -36,18 +36,19 @@ export default function CustomersSay() {
     ];
 
     return (
-        <section className="testimonials" aria-label="Testimonials">
+        <section className="testimonials" id="testimonials">
           <h2>Testimonials</h2>
-          <div className="review-container">
+          <ul>
             {testimonials.map(person => (
-                <Testimonial key={person.username}
-                  rating={person.rating}
-                  url={person.url}
-                  username={person.username}
-                  review={person.review}
-                />
+                <li key={person.username}>
+                  <Testimonial rating={person.rating}
+                    url={person.url}
+                    username={person.username}
+                    review={person.review}
+                  />
+                </li>
             ))}
-          </div>
+          </ul>
         </section>
     );
 }

@@ -1,7 +1,10 @@
 import './Button.css';
 
-export default function Button({ text }) {
+export default function Button({ text, url }) {
+    function clickHandler() {
+
+    }
     return (
-        <button>{text}</button>
+        <button onClick={clickHandler}>{text}</button>
     );
 }

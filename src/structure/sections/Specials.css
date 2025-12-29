@@ -4,16 +4,17 @@
   max-width: 860px;
 }
 
-.highlights-header {
+.highlights header {
   display: flex;
   margin: 0 1rem;
   margin-bottom: 30px;
   justify-content: space-between;
 }
 
-.card-container {
+.highlights ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  list-style: none;
+  gap: 30px;
 }

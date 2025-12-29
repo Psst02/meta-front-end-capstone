@@ -8,9 +8,10 @@
   margin-bottom: 30px;
 }
 
-.review-container {
+.testimonials ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  list-style: none;
   gap: 20px;
 }

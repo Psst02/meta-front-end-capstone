@@ -6,8 +6,8 @@ export default function Nav() {
         <nav>
           <img src={logo} alt="Little Lemon logo"/>
           <ul className="nav-links">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ABOUT</a></li>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
             <li><a href="#">MENU</a></li>
             <li><a href="#">RESERVATIONS</a></li>
             <li><a href="#">ORDER ONLINE</a></li>

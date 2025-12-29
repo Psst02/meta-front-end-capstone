@@ -17,13 +17,13 @@
   align-items: start;
 }
 
-.about > div section {
+.about > div article {
   flex: 1 1 280px;
   text-align: start;
 }
 
-.about > div section p {
-  margin-top: 1rem;
+.about-desc {
+  margin-top: 2rem;
 }
 
 .photo-stack {

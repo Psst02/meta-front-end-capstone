@@ -1,7 +1,7 @@
 .review {
-  width: 180px;
-  min-height: 180px;
-  padding: 1rem;
+  width: 190px;
+  min-height: 190px;
+  padding: 1.5rem;
   text-align: start;
   display: flex;
   flex-direction: column;
@@ -10,16 +10,10 @@
   background-color: #EDEFEE;
 }
 
-.pfp-container {
+.review img {
   width: 30px;
   height: 30px;
   border-radius: 30px;
-  overflow: hidden;
-}
-
-.pfp-container img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
@@ -30,6 +24,7 @@
   margin: 0.5rem 0;
 }
 
-.review q {
+.review p {
   font-size: 0.9rem;
+  line-height: 1.2rem;
 }

@@ -9,43 +9,43 @@ import lemonDessert from '../../food images/lemon dessert.jpg';
 
 export default function Specials() {
     const specials = [
-        {
-            url: bruschetta,
-            title: "Bruschetta",
-            price: "5.99",
-            description: "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil."
-        },
-        {
-            url: greekSalad,
-            title: "Greek Salad",
-            price: "12.99",
-            description: "The famous Greek Salad of crispy lettuce, peppers, olives, and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
-        },
-        {
-            url: lemonDessert,
-            title: "Lemon Cake",
-            price: "5.00",
-            description: "This comes straight from grandma's recipe book. Every last ingredient has been sourced and is as authentic as can be imagined."
-        },
+      {
+        url: bruschetta,
+        title: "Bruschetta",
+        price: "5.99",
+        description: "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil."
+      },
+      {
+        url: greekSalad,
+        title: "Greek Salad",
+        price: "12.99",
+        description: "The famous Greek Salad of crispy lettuce, peppers, olives, and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
+      },
+      {
+        url: lemonDessert,
+        title: "Lemon Cake",
+        price: "5.00",
+        description: "This comes straight from grandma's recipe book. Every last ingredient has been sourced and is as authentic as can be imagined."
+      },
     ];
 
     return (
-        <section className="highlights" aria-label="Highlights">
-          <div className="highlights-header">
+        <section className="highlights" id="highlights">
+          <header>
             <h2>Specials</h2>
             <Button text="Open Menu" />
-          </div>
-          <div className="card-container">
+          </header>
+          <ul>
             {specials.map(dish => (
-                <Card key={dish.title}
-                  url={dish.url}
-                  title={dish.title}
-                  price={dish.price}
-                  description={dish.description}
-                />
-            ))
-            }
-          </div>
+                <li key={dish.title}>
+                  <Card url={dish.url}
+                    title={dish.title}
+                    price={dish.price}
+                    description={dish.description}
+                  />
+                </li>
+            ))}
+          </ul>
         </section>
     );
 }

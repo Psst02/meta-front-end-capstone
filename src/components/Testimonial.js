@@ -2,7 +2,7 @@ import './Testimonial.css';
 
 export default function Testimonial({ rating, url, username, review }) {
     const validRating = Math.max(0, Math.min(rating, 5));
-    const altText = `${username}'s photo`;
+
     return (
         <article className="review">
           <div role="img" aria-label={`Rating: ${validRating} out of 5 stars`}>
@@ -14,13 +14,13 @@ export default function Testimonial({ rating, url, username, review }) {
               </i>
             ))}
           </div>
-          <figure aria-label="User profile">
-            <div className="pfp-container">
-              <img src={url} alt={altText} />
-            </div>
-            <figcaption><h3>{username}</h3></figcaption>
+          <figure>
+            <img src={url} alt={`${username}'s profile photo`} />
+            <figcaption className="section-title">{username}</figcaption>
           </figure>
-          <q>{review}</q>
+          <blockquote>
+            <p>{review}</p>
+          </blockquote>
         </article>
     );
 }
