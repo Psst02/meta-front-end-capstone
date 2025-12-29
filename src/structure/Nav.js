@@ -1,5 +1,5 @@
 import './Nav.css';
-import logo from './Logo.svg';
+import logo from '../logos/Logo.svg';
 
 export default function Nav() {
     return(

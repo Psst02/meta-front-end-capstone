@@ -1,0 +1,16 @@
+.testimonials {
+  padding: 50px 0;
+  margin: 0 auto;
+  background-color: #FBDABB;
+}
+
+.testimonials h2 {
+  margin-bottom: 30px;
+}
+
+.review-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}

@@ -1,8 +1,8 @@
-import './Header.css';
-import image from './foodPlatter.jpg';
-import Button from './components/Button.js';
+import './CallToAction.css';
+import image from '../../food images/foodPlatter.jpg';
+import Button from '../../components/Button.js';
 
-export default function Header() {
+export default function CallToAction() {
   return (
     <header>
       <div aria-label="Hero">
