@@ -1,4 +1,7 @@
 import './Testimonial.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 
 export default function Testimonial({ rating, url, username, review }) {
     const validRating = Math.max(0, Math.min(rating, 5));
@@ -7,11 +10,11 @@ export default function Testimonial({ rating, url, username, review }) {
         <article className="review">
           <div role="img" aria-label={`Rating: ${validRating} out of 5 stars`}>
             {Array.from({ length: 5 }, (_, i) => (
-              <i key={i}
-                className={`${i < validRating ? "fa-solid" : "fa-regular"} fa-star`}
-                style={{ color: "#FFD43B" }}
-                aria-hidden="true">
-              </i>
+              <FontAwesomeIcon key={i}
+                icon={i < validRating ? solidStar : regularStar}
+                size="sm" style={{color: "#FFD43B",}}
+                aria-hidden="true"
+              />
             ))}
           </div>
           <figure>

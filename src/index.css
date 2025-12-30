@@ -73,3 +73,12 @@ p {
   outline: 2px solid #EE9972;
   outline-offset: 1px;
 }
+
+hr {
+  border: none;
+  border-radius: 2px;
+  height: 2px;
+  background-color: #909090;
+  margin: 20px auto;
+  width: 90%;
+}

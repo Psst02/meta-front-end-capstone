@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,11 +19,11 @@ export default function Nav() {
           <NavLinks />
         </ul>
 
-        <button className="hamburger-btn"
+        <button className="icon-btn"
           aria-expanded={isOpen}
           aria-controls="side-menu"
-          aria-label="Toggle navigation menu"
-          onClick={() => setIsOpen(prev => !prev)}>
+          aria-label="Open navigation menu"
+          onClick={() => setIsOpen(true)}>
           <FontAwesomeIcon icon={faBars} size="lg" aria-hidden="true" />
         </button>
       </nav>
@@ -36,10 +36,23 @@ export default function Nav() {
         />
       )}
 
-      <aside id="side-menu" className={`side-nav ${isOpen ? "open" : ""}`}>
-        <ul className="nav-links mobile" onClick={closeMenu}>
-          <NavLinks />
-        </ul>
+      <aside id="side-menu"
+        className={`side-nav ${isOpen ? "open" : ""}`}
+        aria-hidden={!isOpen}
+      >
+        <nav>
+          <header>
+            <button className="icon-btn"
+              aria-label="Close navigation menu"
+              onClick={closeMenu}>
+              <FontAwesomeIcon icon={faXmark} size="lg" aria-hidden="true" />
+            </button>
+          </header>
+          <hr />
+          <ul className="nav-links mobile" onClick={closeMenu}>
+            <NavLinks />
+          </ul>
+        </nav>
       </aside>
     </>
   );

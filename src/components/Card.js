@@ -1,4 +1,6 @@
 import './Card.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPersonBiking } from "@fortawesome/free-solid-svg-icons";
 
 export default function Card({ url, title, price, description }) {
     return (
@@ -13,7 +15,7 @@ export default function Card({ url, title, price, description }) {
             <p>
               Order Delivery&ensp;
               <span>
-                <i className="fa-solid fa-person-biking" aria-hidden="true"></i>
+                <FontAwesomeIcon icon={faPersonBiking} size="lg" aria-hidden="true"/>
               </span>
             </p>
           </div>
