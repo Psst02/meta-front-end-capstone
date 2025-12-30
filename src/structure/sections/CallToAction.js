@@ -1,4 +1,5 @@
 import './CallToAction.css';
+import { Link } from 'react-router-dom';
 import image from '../../food images/foodPlatter.jpg';
 
 export default function CallToAction() {
@@ -12,7 +13,9 @@ export default function CallToAction() {
             We are a family owned Mediterranean restaurant, focused on traditional
             recipes served with a modern twist.
           </p>
-          <button className="preset-btn">Reserve a Table</button>
+          <Link to="/booking">
+            <button className="preset-btn">Reserve a Table</button>
+          </Link>
         </section>
         <figure>
           <img src={image} alt="Food platter served at Little Lemon" />
