@@ -3,8 +3,8 @@ import logo from '../logos/Logo.svg';
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 export default function Nav() {
   const sideNavRef = useRef(null);
@@ -30,7 +30,6 @@ export default function Nav() {
         }
       }
       if (e.key === "Escape") closeMenu();
-      if (e.key === "ArrowDown" || e.key === "ArrowUp") e.preventDefault();
     };
 
     document.addEventListener("keydown", handleKeyDown);
@@ -59,7 +58,7 @@ export default function Nav() {
       {isOpen && (
         <div
           className="backdrop"
-          onClick={closeMenu}
+          onPointerDown={closeMenu}
           aria-hidden="true"
         />
       )}
@@ -77,8 +76,8 @@ export default function Nav() {
             </button>
           </header>
           <hr />
-          <ul className="nav-links mobile" onClick={closeMenu}>
-            <NavLinks />
+          <ul className="nav-links mobile">
+            <NavLinks onNavigate={closeMenu} />
           </ul>
         </nav>
       </aside>
@@ -86,15 +85,15 @@ export default function Nav() {
   );
 }
 
-function NavLinks() {
+function NavLinks({ onNavigate }) {
   return (
     <>
-      <li><Link to="/">HOME</Link></li>
-      <li><a href="#about">ABOUT</a></li>
-      <li><a href="#">MENU</a></li>
-      <li><Link to="/booking">RESERVATIONS</Link></li>
-      <li><a href="#">ORDER ONLINE</a></li>
-      <li><a href="#">LOGIN</a></li>
+      <li><Link to="/" onClick={onNavigate}>HOME</Link></li>
+      <li><a href="#about" onClick={onNavigate}>ABOUT</a></li>
+      <li><a href="#" onClick={onNavigate}>MENU</a></li>
+      <li><Link to="/booking" onClick={onNavigate}>RESERVATIONS</Link></li>
+      <li><a href="#" onClick={onNavigate}>ORDER ONLINE</a></li>
+      <li><a href="#" onClick={onNavigate}>LOGIN</a></li>
     </>
   );
 }
