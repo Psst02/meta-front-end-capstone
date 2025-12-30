@@ -20,11 +20,11 @@ export default function Chicago() {
             </article>
             <div className="photo-stack" aria-hidden="true">
               <img src={about1}
-                alt="Dish 1"
+                alt="Adrian making a salad"
                 className="photo photo-back"
               />
               <img src={about2}
-                alt="Dish 2"
+                alt="Mario & Adrian"
                 className="photo photo-front"
               />
             </div>
