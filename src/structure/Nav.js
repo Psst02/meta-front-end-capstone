@@ -65,6 +65,7 @@ export default function Nav() {
 
       <aside ref={sideNavRef}
         id="side-menu"
+        inert={!isOpen}
         className={`side-nav ${isOpen ? "open" : ""}`}
       >
         <nav>

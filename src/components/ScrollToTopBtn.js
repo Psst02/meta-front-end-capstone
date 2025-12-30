@@ -22,6 +22,7 @@ export default function ScrollToTopBtn() {
   return (
     <div
       className={`scroll-to-top ${showButton ? 'visible' : ''}`}
+      inert={!showButton}
       aria-hidden={!showButton}
     >
       <button

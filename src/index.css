@@ -50,7 +50,9 @@ p {
   border-radius: 16px;
   background-color: #F4CE14;
   cursor: pointer;
-  transition: 0.1s;
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
 
   font-size: 1rem;
   font-family: 'Karla', sans-serif;
