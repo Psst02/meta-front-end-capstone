@@ -1,15 +1,4 @@
 form {
-  width: 100%;
-  padding: 50px 0;
-  background-color: #495E57;
-}
-
-form h1 {
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.form-container {
   display: grid;
   max-width: 290px;
   background-color: #EDEFEE;
@@ -21,10 +10,10 @@ form h1 {
   box-shadow: 0 0 20px #404040;
 }
 
-.form-container label {
+form label {
   font-weight: 700;
 }
-.form-container label::after {
+form label::after {
   content: "*";
   color: #EE9972;
   font-family: inherit;

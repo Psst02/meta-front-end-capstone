@@ -1,0 +1,21 @@
+.green-bg {
+  width: 100%;
+  padding: 50px 0;
+  background-color: #495E57;
+}
+
+.green-bg h1 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.message-container {
+  display: grid;
+  max-width: 290px;
+  background-color: #EDEFEE;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 0 auto;
+  gap: 20px;
+  box-shadow: 0 0 20px #404040;
+}
