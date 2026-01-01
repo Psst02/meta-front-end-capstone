@@ -12,6 +12,7 @@ const allSteps = [
 export default function BookingPage({ availableTimes, dispatch, submitForm }) {
   const [step, setStep] = useState(0);
   const [isValid, setIsValid] = useState(false);
+
   const [formData, setFormData] = useState({
     date: "",
     time: "",
@@ -23,7 +24,7 @@ export default function BookingPage({ availableTimes, dispatch, submitForm }) {
   });
 
   const nextStep = () => {
-    if (isValid) setStep(currentStep => currentStep + 1);
+    if (isValid) setStep(s => s + 1);
   };
 
   const updateData = (updates) => {
@@ -31,35 +32,31 @@ export default function BookingPage({ availableTimes, dispatch, submitForm }) {
   };
 
   return (
-    <>
-      <main className="green-bg">
-        <h1>Reservation</h1>
-        <StepIndicator steps={allSteps}
-          currentStep={step}
-          onStepChange={setStep}
-          canProceed={isValid}
+    <main className="green-bg">
+      <h1>Reservation</h1>
+      <StepIndicator steps={allSteps}
+        currentStep={step}
+        onStepChange={setStep}
+        canProceed={isValid}
+      />
+
+      {step === 0 && (
+        <BookingForm data={formData}
+          availableTimes={availableTimes}
+          dispatch={dispatch}
+          onChange={updateData}
+          onValidChange={setIsValid}
+          onNext={nextStep}
         />
+      )}
 
-        {step === 0 && (
-          <BookingForm
-            availableTimes={availableTimes}
-            dispatch={dispatch}
-            data={formData}
-            onChange={updateData}
-            onValidChange={setIsValid}
-            onNext={nextStep}
-          />
-        )}
-
-        {step === 1 && (
-          <ContactForm
-            data={formData}
-            onChange={updateData}
-            onValidChange={setIsValid}
-            onSubmit={() => submitForm(formData)}
-          />
-        )}
-      </main>
-    </>
+      {step === 1 && (
+        <ContactForm data={formData}
+          onChange={updateData}
+          onValidChange={setIsValid}
+          onSubmit={() => submitForm(formData)}
+        />
+      )}
+    </main>
   );
 }

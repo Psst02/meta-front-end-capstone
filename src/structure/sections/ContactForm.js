@@ -1,4 +1,16 @@
 import './Form.css';
+import { Formik } from "formik";
+import * as Yup from "yup";
+
+const contactSchema = Yup.object({
+  firstName: Yup.string().required('Required field.'),
+  lastName: Yup.string().required('Required field.'),
+  phone: Yup.number()
+    .min(1, 'At least 1 diner.')
+    .max(10, 'Max capacity exceeded.')
+    .required('Required field.'),
+});
+
 
 export default function BookingForm({
     data,
