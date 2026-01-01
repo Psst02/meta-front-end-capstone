@@ -1,0 +1,49 @@
+.step-indicator ol {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.form-progress button {
+  position: relative;
+}
+
+.form-progress:not(:last-child) button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 5.5rem;
+  border-bottom: 2px dotted white;
+}
+
+.form-progress button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  cursor: pointer;
+  background-color: #F4CE14;
+  transition: background-color 0.1s ease;
+}
+
+.form-progress button:disabled {
+  background-color: gainsboro;
+  cursor: not-allowed;
+}
+
+.form-progress button:not(:disabled):hover,
+.form-progress button:not(:disabled):focus {
+  color: white;
+  background-color: #EE9972;
+}
+
+.form-progress label {
+  color: white;
+  text-align: center;
+}
+

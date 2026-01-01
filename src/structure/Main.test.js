@@ -3,23 +3,18 @@ jest.mock("react-router-dom", () => ({
   Route: () => null,
 }));
 
+import { fetchAPI } from '../api';
 import { initializeTimes, updateTimes } from './Main';
 
 test("initializeTimes returns the expected times", () => {
-  const expectedTimes = [
-    "17:00",
-    "18:00",
-    "19:00",
-    "20:00",
-    "21:00",
-    "22:00",
-  ];
-  expect(initializeTimes()).toEqual(expectedTimes);
+  const date = new Date();
+  const result = initializeTimes(date);
+  expect(result).toEqual(fetchAPI(date));
 });
 
 test("updateTimes returns the same value as its state", () => {
-  const state = ["17:00", "18:00", "19:00"];
-  const action = { type: "UPDATE", date: "2025-01-01" };
-  const result = updateTimes(state, action);
-  expect(result).toBe(state);
+  const date = new Date('2026-01-01');
+  const action = { type: "UPDATE", date: "2026-01-01" };
+  const result = updateTimes([], action);
+  expect(result).toEqual(fetchAPI(date));
 });

@@ -6,8 +6,8 @@ import Homepage from './pages/Homepage.js';
 import BookingPage from './pages/BookingPage.js';
 import ConfirmedBooking from './pages/ConfirmedBooking.js';
 
-export const initializeTimes = () => {
-  return fetchAPI(new Date());
+export const initializeTimes = (date=new Date()) => {
+  return fetchAPI(date);
 };
 
 export const updateTimes = (state, action) => {

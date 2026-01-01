@@ -14,16 +14,16 @@ export default function StepIndicator({
           const isCompleted = index < currentStep;
 
           return (
-            <li key={step.id}>
-              <button
+            <li key={step.id} className="form-progress">
+              <button id="progress-ui"
                 type="button"
                 onClick={() => onStepChange(index)}
                 disabled={index > currentStep && !canProceed}
                 aria-current={isActive ? "step" : undefined}
               >
-                <span className="step-index">{index + 1}</span>
-                {step.label}
-              </button>
+                {index + 1}
+              </button><br/>
+              <label htmlFor="progress-ui">{step.label}</label>
             </li>
           );
         })}
