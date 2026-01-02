@@ -11,7 +11,6 @@ export default function StepIndicator({
       <ol>
         {steps.map((step, index) => {
           const isActive = index === currentStep;
-          const isCompleted = index < currentStep;
 
           return (
             <li key={step.id} className="form-progress">
@@ -20,6 +19,7 @@ export default function StepIndicator({
                 onClick={() => onStepChange(index)}
                 disabled={index > currentStep && !canProceed}
                 aria-current={isActive ? "step" : undefined}
+                className={`${index === currentStep ? 'active' : ''}`}
               >
                 {index + 1}
               </button><br/>

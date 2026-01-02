@@ -60,13 +60,19 @@ p {
   font-weight: 500;
 }
 
-.preset-btn:hover, .preset-btn:focus {
+.preset-btn:disabled {
+  background-color: gainsboro;
+  cursor: not-allowed;
+}
+
+.preset-btn:not(:disabled):hover,
+.preset-btn:not(:disabled):focus {
   color: white;
   background-color: #EE9972;
   transform: scale(1.05);
 }
 
-.preset-btn:active {
+.preset-btn:not(:disabled):active {
   color: black;
   background-color: #FBDABB;
 }
@@ -84,4 +90,12 @@ hr {
   background-color: #909090;
   margin: 20px auto;
   width: 90%;
+}
+
+.active {
+  color: white !important;
+  background-color: #EE9972 !important;
+  border: none;
+  outline: 2px solid #EE9972;
+  outline-offset: 1px;
 }

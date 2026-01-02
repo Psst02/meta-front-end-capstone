@@ -1,7 +1,7 @@
 import './Nav.css';
 import logo from '../logos/Logo.svg';
 import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -87,14 +87,16 @@ export default function Nav() {
 }
 
 function NavLinks({ onNavigate }) {
+  const linkClass = ({ isActive }) =>
+    isActive ? "active" : "";
   return (
     <>
-      <li><Link to="/" onClick={onNavigate}>HOME</Link></li>
-      <li><a href="#about" onClick={onNavigate}>ABOUT</a></li>
-      <li><a href="#" onClick={onNavigate}>MENU</a></li>
-      <li><Link to="/booking" onClick={onNavigate}>RESERVATIONS</Link></li>
-      <li><a href="#" onClick={onNavigate}>ORDER ONLINE</a></li>
-      <li><a href="#" onClick={onNavigate}>LOGIN</a></li>
+      <li><NavLink to="/" onClick={onNavigate} className={linkClass}>HOME</NavLink></li>
+      <li><a href="#about" onClick={onNavigate} className={linkClass}>ABOUT</a></li>
+      <li><a href="#" onClick={onNavigate} className={linkClass}>MENU</a></li>
+      <li><NavLink to="/booking" onClick={onNavigate} className={linkClass}>RESERVATIONS</NavLink></li>
+      <li><a href="#" onClick={onNavigate} className={linkClass}>ORDER ONLINE</a></li>
+      <li><a href="#" onClick={onNavigate} className={linkClass}>LOGIN</a></li>
     </>
   );
 }

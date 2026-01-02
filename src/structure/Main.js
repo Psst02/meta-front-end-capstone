@@ -31,15 +31,14 @@ export default function Main() {
           <Route path="/booking"
             element=
               {<BookingPage
+                submitForm={submitForm}
                 availableTimes={availableTimes}
                 dispatch={dispatch}
               />}
           />
           <Route path="/booking-confirmed"
             element=
-              {<ConfirmedBooking
-                submitForm={submitForm}
-              />}
+              {<ConfirmedBooking/>}
           />
         </Routes>
       </>

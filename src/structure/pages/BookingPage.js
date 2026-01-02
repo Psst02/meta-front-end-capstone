@@ -44,16 +44,16 @@ export default function BookingPage({ availableTimes, dispatch, submitForm }) {
         <BookingForm data={formData}
           availableTimes={availableTimes}
           dispatch={dispatch}
-          onChange={updateData}
           onValidChange={setIsValid}
+          updateData={updateData}
           onNext={nextStep}
         />
       )}
 
       {step === 1 && (
         <ContactForm data={formData}
-          onChange={updateData}
           onValidChange={setIsValid}
+          updateData={updateData}
           onSubmit={() => submitForm(formData)}
         />
       )}
