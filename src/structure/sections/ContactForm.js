@@ -52,7 +52,7 @@ function ContactFormContent({ onValidChange, updateData }) {
   useEffect(() => {
     updateData(values);
     onValidChange(isValid);
-  }, [isValid, onValidChange]);
+  }, [isValid, values]);
 
   return (
     <form onSubmit={handleSubmit}>

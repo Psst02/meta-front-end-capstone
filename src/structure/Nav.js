@@ -1,7 +1,8 @@
 import './Nav.css';
 import logo from '../logos/Logo.svg';
 import { useState, useRef, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -43,7 +44,7 @@ export default function Nav() {
       <nav className="top-nav" aria-label="Primary navigation">
         <img src={logo} alt="Little Lemon logo" />
         <ul className="nav-links desktop">
-          <NavLinks />
+          <NavLinks hasActive={true}/>
         </ul>
 
         <button className="icon-btn"
@@ -87,16 +88,68 @@ export default function Nav() {
 }
 
 function NavLinks({ onNavigate }) {
-  const linkClass = ({ isActive }) =>
-    isActive ? "active" : "";
+  const { pathname, hash } = useLocation();
+
   return (
     <>
-      <li><NavLink to="/" onClick={onNavigate} className={linkClass}>HOME</NavLink></li>
-      <li><a href="#about" onClick={onNavigate} className={linkClass}>ABOUT</a></li>
-      <li><a href="#" onClick={onNavigate} className={linkClass}>MENU</a></li>
-      <li><NavLink to="/booking" onClick={onNavigate} className={linkClass}>RESERVATIONS</NavLink></li>
-      <li><a href="#" onClick={onNavigate} className={linkClass}>ORDER ONLINE</a></li>
-      <li><a href="#" onClick={onNavigate} className={linkClass}>LOGIN</a></li>
+      <li>
+        <NavLink to="/"
+          end
+          className={!hash && pathname === "/" ? "active" : undefined}
+          onClick={onNavigate}
+        >
+          HOME
+        </NavLink>
+      </li>
+
+      <li>
+        <a href="/#about"
+          className={hash === "#about" ? "active" : undefined}
+          onClick={onNavigate}
+        >
+          ABOUT
+        </a>
+      </li>
+
+      <li>
+        <NavLink to="/menu"
+          end
+          className={!hash && pathname === "/menu" ? "active" : undefined}
+          onClick={onNavigate}
+        >
+          MENU
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/booking"
+          className={!hash && pathname === "/booking" ? "active" : undefined}
+          onClick={onNavigate}
+        >
+          RESERVATIONS
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/order-online"
+          end
+          className={!hash && pathname === "/order-online" ? "active" : undefined}
+          onClick={onNavigate}
+        >
+          ORDER ONLINE
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to="/login"
+          end
+          className={!hash && pathname === "/login" ? "active" : undefined}
+          onClick={onNavigate}
+        >
+          LOGIN
+        </NavLink>
+      </li>
     </>
   );
 }

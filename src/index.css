@@ -92,7 +92,8 @@ hr {
   width: 90%;
 }
 
-.active {
+.form-progress .active,
+.desktop a.active {
   color: white !important;
   background-color: #EE9972 !important;
   border: none;
