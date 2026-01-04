@@ -35,6 +35,14 @@ form select:focus {
   border-right: 1rem solid transparent;
 }
 
+form .field-valid {
+
+}
+
+form .field-invalid {
+
+}
+
 form button {
   margin-top: 1rem;
 }

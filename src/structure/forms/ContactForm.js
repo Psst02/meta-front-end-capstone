@@ -1,6 +1,8 @@
 import './Form.css';
-import { Formik, useFormikContext } from "formik";
 import { useEffect } from "react";
+import { useFormHelper } from './useFormHelper';
+
+import { Formik, useFormikContext } from "formik";
 import * as Yup from "yup";
 
 const contactSchema = Yup.object({
@@ -23,8 +25,6 @@ export default function ContactForm({
       validationSchema={contactSchema}
       validateOnMount
       validateOnChange
-      validateOnBlur
-      enableReinitialize
       onSubmit={(values) => {
         updateData(values);
         onSubmit();
@@ -42,12 +42,12 @@ function ContactFormContent({ onValidChange, updateData }) {
   const {
     values,
     errors,
-    touched,
     handleChange,
-    handleBlur,
     handleSubmit,
     isValid,
   } = useFormikContext();
+
+  const { interacted, markInteracted, fieldClass } = useFormHelper();
 
   useEffect(() => {
     updateData(values);
@@ -59,54 +59,53 @@ function ContactFormContent({ onValidChange, updateData }) {
       <label htmlFor="firstName" className="required">
         First Name
       </label>
-      <input
-        id="firstName"
+      <input id="firstName"
         name="firstName"
         type="text"
         placeholder="Jane"
         value={values.firstName}
+        onFocus={() => markInteracted("firstName")}
         onChange={handleChange}
-        onBlur={handleBlur}
+        className={`${fieldClass("firstName", errors)}`}
       />
-      {touched.firstName && errors.firstName && (
+      {interacted.firstName && errors.firstName && (
         <p className="feedback" aria-live="polite">{errors.firstName}</p>
       )}
 
       <label htmlFor="lastName" className="required">
         Last Name
       </label>
-      <input
-        id="lastName"
+      <input id="lastName"
         name="lastName"
         type="text"
         placeholder="Doe"
         value={values.lastName}
+        onFocus={() => markInteracted("lastName")}
         onChange={handleChange}
-        onBlur={handleBlur}
+        className={`${fieldClass("lastName", errors)}`}
       />
-      {touched.lastName && errors.lastName && (
+      {interacted.lastName && errors.lastName && (
         <p className="feedback" aria-live="polite">{errors.lastName}</p>
       )}
 
       <label htmlFor="phone" className="required">
         Mobile No.
       </label>
-      <input
-        id="phone"
+      <input id="phone"
         name="phone"
         type="tel"
         placeholder="312-123-4567"
         value={values.phone}
+        onFocus={() => markInteracted("phone")}
         onChange={handleChange}
-        onBlur={handleBlur}
+        className={`${fieldClass("phone", errors)}`}
         title="Chicago phone number (e.g. 312-123-4567)"
       />
-      {touched.phone && errors.phone && (
+      {interacted.phone && errors.phone && (
         <p className="feedback" aria-live="polite">{errors.phone}</p>
       )}
 
-      <button
-        type="submit"
+      <button type="submit"
         className="preset-btn"
         disabled={!isValid}
       >

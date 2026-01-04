@@ -1,4 +1,5 @@
 import './Form.css';
+import { useFormHelper } from './useFormHelper';
 import { Formik, useFormikContext } from "formik";
 import * as Yup from "yup";
 
@@ -27,9 +28,9 @@ export default function LoginForm() {
       validationSchema={loginSchema}
       validateOnMount
       validateOnChange
-      validateOnBlur
-      enableReinitialize
-      onSubmit={({resetForm}) => resetForm()}
+      onSubmit={(values, { resetForm }) => {
+        resetForm();
+      }}
     >
       <LoginFormContent/>
     </Formik>
@@ -40,18 +41,21 @@ function LoginFormContent() {
   const {
     values,
     errors,
-    touched,
     handleChange,
-    handleBlur,
     handleSubmit,
+    submitCount,
     isValid,
   } = useFormikContext();
 
+  const { interacted, markInteracted, fieldClass } = useFormHelper(submitCount);
+
   const passwordErrors = [];
-  try {
-    passwordSchema.validateSync(values.password, { abortEarly: false });
-  } catch (err) {
-    passwordErrors.push(...err.errors);
+  if (interacted.password) {
+    try {
+      passwordSchema.validateSync(values.password, { abortEarly: false });
+    } catch (err) {
+      passwordErrors.push(...err.errors);
+    }
   }
 
   return (
@@ -61,11 +65,13 @@ function LoginFormContent() {
         type="email"
         name="email"
         value={values.email}
+        onFocus={() => markInteracted("email")}
         onChange={handleChange}
-        onBlur={handleBlur}
         placeholder="example@gmail.com"
+        className={`${fieldClass("email", errors)}`}
+        autoComplete="email"
       />
-      {touched.email && errors.email && (
+      {interacted.email && errors.email && (
         <p className="feedback" aria-live="polite">{errors.email}</p>
       )}
 
@@ -73,11 +79,13 @@ function LoginFormContent() {
       <input id="password"
         type="password"
         name="password"
-        value={values.guests}
+        value={values.password}
+        onFocus={() => markInteracted("password")}
         onChange={handleChange}
-        onBlur={handleBlur}
+        className={`${fieldClass("password", errors)}`}
+        autoComplete="password"
       />
-      {touched.password && passwordErrors.length > 0 && (
+      {interacted.password && passwordErrors.length > 0 && (
         <ul className="feedback-list" aria-live="polite">
           {passwordErrors.map(msg => (
             <li key={msg} className="feedback">{msg}</li>

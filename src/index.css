@@ -79,7 +79,7 @@ p {
 
 *:focus {
   border: none;
-  outline: 2px solid #EE9972;
+  outline: 2px dashed #F4CE14;
   outline-offset: 1px;
 }
 

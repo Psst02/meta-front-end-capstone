@@ -1,10 +1,21 @@
 import './Form.css';
-import { Formik, useFormikContext } from "formik";
 import { useEffect } from "react";
+import { useFormHelper } from './useFormHelper';
+
+import { Formik, useFormikContext } from "formik";
 import * as Yup from "yup";
 
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+const maxDate = new Date(today);
+maxDate.setDate(maxDate.getDate() + 7);
+
 const bookingSchema = Yup.object({
-  date: Yup.string().required('Choose a date'),
+  date: Yup.date()
+    .required('Choose a date')
+    .min(today, "Select a future date")
+    .max(maxDate, "Must be within 7 days"),
   time: Yup.string().required('Choose a time slot'),
   guests: Yup.number()
     .required('Required field')
@@ -26,8 +37,6 @@ export default function BookingForm({
       validationSchema={bookingSchema}
       validateOnMount
       validateOnChange
-      validateOnBlur
-      enableReinitialize
       onSubmit={(values) => {
         updateData(values);
         onNext();
@@ -52,12 +61,12 @@ function BookingFormContent({
   const {
     values,
     errors,
-    touched,
     handleChange,
-    handleBlur,
     handleSubmit,
     isValid,
   } = useFormikContext();
+
+  const { interacted, markInteracted, fieldClass } = useFormHelper();
 
   useEffect(() => {
     updateData(values);
@@ -70,14 +79,17 @@ function BookingFormContent({
       <input id="date"
         type="date"
         name="date"
+        min={formatDate(today)}
+        max={formatDate(maxDate)}
         value={values.date}
+        onFocus={() => markInteracted("date")}
         onChange={(e) => {
           handleChange(e);
           dispatch({ type: "UPDATE", date: e.target.value });
         }}
-        onBlur={handleBlur}
+        className={`${fieldClass("date", errors)}`}
       />
-      {touched.date && errors.date && (
+      {interacted.date && errors.date && (
         <p className="feedback" aria-live="polite">{errors.date}</p>
       )}
 
@@ -85,15 +97,16 @@ function BookingFormContent({
       <select id="time"
         name="time"
         value={values.time}
+        onFocus={() => markInteracted("time")}
         onChange={handleChange}
-        onBlur={handleBlur}
+        className={`${fieldClass("time", errors)}`}
       >
         <option value="" disabled hidden>Select a Time</option>
         {availableTimes.map(t => (
           <option key={t} value={t}>{t}</option>
         ))}
       </select>
-      {touched.time && errors.time && (
+      {interacted.time && errors.time && (
         <p className="feedback" aria-live="polite">{errors.time}</p>
       )}
 
@@ -102,10 +115,11 @@ function BookingFormContent({
         type="number"
         name="guests"
         value={values.guests}
+        onFocus={() => markInteracted("guests")}
         onChange={handleChange}
-        onBlur={handleBlur}
+        className={`${fieldClass("guests", errors)}`}
       />
-      {touched.guests && errors.guests && (
+      {interacted.guests && errors.guests && (
         <p className="feedback" aria-live="polite">{errors.guests}</p>
       )}
 
@@ -114,7 +128,6 @@ function BookingFormContent({
         name="occasion"
         value={values.occasion}
         onChange={handleChange}
-        onBlur={handleBlur}
       >
         <option value="" disabled hidden> Occasion </option>
         <option value="Birthday">Birthday</option>
@@ -131,4 +144,11 @@ function BookingFormContent({
       </button>
     </form>
   );
+}
+
+function formatDate(date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
 }
