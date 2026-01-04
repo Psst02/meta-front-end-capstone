@@ -11,7 +11,7 @@
   height: 40px;
 }
 
-.nav-links {
+.nav-links li {
   list-style: none;
 }
 
@@ -47,6 +47,7 @@
 }
 
 .side-nav {
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
@@ -86,6 +87,7 @@
 }
 
 .backdrop {
+  display: none;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.3);
@@ -95,6 +97,14 @@
 @media (max-width: 860px) {
   .nav-links.desktop {
     display: none;
+  }
+
+  .side-nav {
+    display: block;
+  }
+
+  .backdrop {
+    display: block;
   }
 
   .icon-btn {

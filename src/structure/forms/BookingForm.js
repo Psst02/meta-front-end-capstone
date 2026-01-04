@@ -2,15 +2,14 @@ import './Form.css';
 import { Formik, useFormikContext } from "formik";
 import { useEffect } from "react";
 import * as Yup from "yup";
-import { updateTimes } from '../Main';
 
 const bookingSchema = Yup.object({
   date: Yup.string().required('Choose a date'),
   time: Yup.string().required('Choose a time slot'),
   guests: Yup.number()
+    .required('Required field')
     .min(1, 'At least 1 diner')
-    .max(10, 'Max capacity exceeded')
-    .required('Required field'),
+    .max(10, 'Max capacity exceeded'),
 });
 
 export default function BookingForm({

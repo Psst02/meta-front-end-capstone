@@ -1,7 +1,7 @@
 import './Booking.css';
 import { useState } from 'react';
-import BookingForm from '../sections/BookingForm.js';
-import ContactForm from '../sections/ContactForm.js';
+import BookingForm from '../forms/BookingForm.js';
+import ContactForm from '../forms/ContactForm.js';
 import StepIndicator from '../../components/StepIndicator.js';
 
 const allSteps = [

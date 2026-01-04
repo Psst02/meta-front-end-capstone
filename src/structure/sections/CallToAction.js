@@ -17,7 +17,7 @@ export default function CallToAction() {
             <button className="preset-btn">Reserve a Table</button>
           </Link>
         </section>
-        <figure>
+        <figure aria-hidden="true">
           <img src={image} alt="Food platter served at Little Lemon" />
         </figure>
       </div>

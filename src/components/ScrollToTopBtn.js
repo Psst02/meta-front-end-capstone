@@ -28,7 +28,7 @@ export default function ScrollToTopBtn() {
       <button
         type="button"
         onClick={scrollToTop}
-        aria-label="Scroll to top"
+        aria-label="Scroll to top on click"
         tabIndex={showButton ? 0 : -1}
       >
         <FontAwesomeIcon icon={faArrowUp} size="lg" aria-hidden="true" />

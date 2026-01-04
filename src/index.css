@@ -92,11 +92,9 @@ hr {
   width: 90%;
 }
 
-.form-progress .active,
-.desktop a.active {
+.form-progress button[aria-current="step"],
+.desktop a[aria-current="page"] {
   color: white !important;
   background-color: #EE9972 !important;
   border: none;
-  outline: 2px solid #EE9972;
-  outline-offset: 1px;
 }

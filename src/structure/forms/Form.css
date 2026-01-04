@@ -39,7 +39,16 @@ form button {
   margin-top: 1rem;
 }
 
+form .feedback-list {
+  list-style: none;
+}
+
 form .feedback {
   color: #EE9972;
   font-size: 0.9rem;
+}
+
+.signup-txt {
+  font-size: 0.9rem;
+  justify-self: center;
 }

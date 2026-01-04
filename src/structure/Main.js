@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { fetchAPI, submitAPI } from "../api";
 import Homepage from './pages/Homepage.js';
 import BookingPage from './pages/BookingPage.js';
+import LoginPage from './pages/LoginPage.js';
 import ConfirmedBooking from './pages/ConfirmedBooking.js';
 
 export const initializeTimes = (date=new Date()) => {
@@ -37,8 +38,10 @@ export default function Main() {
               />}
           />
           <Route path="/booking-confirmed"
-            element=
-              {<ConfirmedBooking/>}
+            element={<ConfirmedBooking/>}
+          />
+          <Route path="/login"
+            element={<LoginPage/>}
           />
         </Routes>
       </>
