@@ -21,10 +21,7 @@ const loginSchema = Yup.object({
 export default function LoginForm() {
   return (
     <Formik
-      initialValues={{
-        email: '',
-        password: '',
-      }}
+      initialValues={{ email: '', password: '' }}
       validationSchema={loginSchema}
       validateOnMount
       validateOnChange
@@ -58,6 +55,10 @@ function LoginFormContent() {
     }
   }
 
+  const handleFieldChange = (e) => {
+    handleChange(e);
+  };
+
   return (
     <form onSubmit={handleSubmit} noValidate>
       <label className="required" htmlFor="email">Email</label>
@@ -66,7 +67,7 @@ function LoginFormContent() {
         name="email"
         value={values.email}
         onFocus={() => markInteracted("email")}
-        onChange={handleChange}
+        onChange={handleFieldChange}
         placeholder="example@gmail.com"
         className={`${fieldClass("email", errors)}`}
         autoComplete="email"
@@ -81,7 +82,7 @@ function LoginFormContent() {
         name="password"
         value={values.password}
         onFocus={() => markInteracted("password")}
-        onChange={handleChange}
+        onChange={handleFieldChange}
         className={`${fieldClass("password", errors)}`}
         autoComplete="password"
       />

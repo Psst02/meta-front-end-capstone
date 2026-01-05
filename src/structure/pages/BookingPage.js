@@ -1,27 +1,26 @@
-import './Booking.css';
+import './Page.css';
 import { useState } from 'react';
+
 import BookingForm from '../forms/BookingForm.js';
 import ContactForm from '../forms/ContactForm.js';
 import StepIndicator from '../../components/StepIndicator.js';
 
 const allSteps = [
-    { id: "options", label: "Options" },
-    { id: "contact", label: "Contact" }
-  ];
+  { id: "options", label: "Options" },
+  { id: "contact", label: "Contact" }
+];
+
+const INITIAL_FORM = {
+  date: "",
+  time: "",
+  guests: 1,
+  occasion: ""
+};
 
 export default function BookingPage({ availableTimes, dispatch, submitForm }) {
   const [step, setStep] = useState(0);
   const [isValid, setIsValid] = useState(false);
-
-  const [formData, setFormData] = useState({
-    date: "",
-    time: "",
-    guests: 1,
-    occasion: "",
-    firstName: "",
-    lastName: "",
-    phone: ""
-  });
+  const [formData, setFormData] = useState(INITIAL_FORM);
 
   const nextStep = () => {
     if (isValid) setStep(s => s + 1);
@@ -54,7 +53,9 @@ export default function BookingPage({ availableTimes, dispatch, submitForm }) {
         <ContactForm data={formData}
           onValidChange={setIsValid}
           updateData={updateData}
-          onSubmit={() => submitForm(formData)}
+          onSubmit={() => {
+            submitForm(formData);
+          }}
         />
       )}
     </main>

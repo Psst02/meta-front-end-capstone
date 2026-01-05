@@ -36,11 +36,13 @@ form select:focus {
 }
 
 form .field-valid {
-
+  outline: 2px solid #198450;
+  background-color: #CBF5DD;
 }
 
 form .field-invalid {
-
+  outline: 2px solid #EE9972;
+  outline-offset: 1px;
 }
 
 form button {
