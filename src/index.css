@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   width: 100%;
   text-align: center;
@@ -69,6 +78,7 @@ p {
 }
 
 .preset-btn:disabled {
+  color: grey;
   background-color: gainsboro;
   cursor: not-allowed;
 }

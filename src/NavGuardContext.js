@@ -11,21 +11,24 @@ export function NavGuardProvider({ children }) {
   const [pendingNav, setPendingNav] = useState(null);
   const [open, setOpen] = useState(false);
 
-  const requestNavigation = (path) => {
-    const nextPath = typeof path === "string" ? path.split("#")[0] : path.pathname;
+  const requestNavigation = (target) => {
+    const nextPath = typeof target === "string"
+      ? target.split("#")[0]
+      : target.pathname;
+    const samePath = nextPath === location.pathname;
 
     // Allow hash navigation
-    if (nextPath === location.pathname) {
-      navigate(path);
+    if (samePath) {
+      navigate(target);
       return;
     }
 
     // Show modal only if form is modified
     if (isDirty) {
-      setPendingNav(path);
+      setPendingNav(target);
       setOpen(true);
     } else {
-      navigate(path);
+      navigate(target);
     }
   };
 
