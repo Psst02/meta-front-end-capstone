@@ -1,9 +1,11 @@
 import './Page.css';
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 import BookingForm from '../forms/BookingForm.js';
 import ContactForm from '../forms/ContactForm.js';
 import StepIndicator from '../../components/StepIndicator.js';
+
+import { useNavGuard } from '../../NavGuardContext.js';
 
 const allSteps = [
   { id: "options", label: "Options" },
@@ -18,9 +20,19 @@ const INITIAL_FORM = {
 };
 
 export default function BookingPage({ availableTimes, dispatch, submitForm }) {
+  const { setIsDirty } = useNavGuard();
   const [step, setStep] = useState(0);
   const [isValid, setIsValid] = useState(false);
+
   const [formData, setFormData] = useState(INITIAL_FORM);
+  const isDirty = useMemo(() => {
+    return JSON.stringify(formData) !== JSON.stringify(INITIAL_FORM);
+  }, [formData]);
+
+  useEffect(() => {
+    setIsDirty(isDirty);
+    return () => setIsDirty(false);
+  }, [isDirty, setIsDirty]);
 
   const nextStep = () => {
     if (isValid) setStep(s => s + 1);
@@ -55,6 +67,7 @@ export default function BookingPage({ availableTimes, dispatch, submitForm }) {
           updateData={updateData}
           onSubmit={() => {
             submitForm(formData);
+            setIsDirty(false);
           }}
         />
       )}

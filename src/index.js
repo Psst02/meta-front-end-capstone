@@ -6,10 +6,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { NavGuardProvider } from './NavGuardContext.js';
+
 const router = createBrowserRouter([
   {
     path: "*",
-    element: <App />,
+    element: (
+      <NavGuardProvider>
+        <App />
+      </NavGuardProvider>
+    ),
   },
 ]);
 

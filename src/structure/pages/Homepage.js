@@ -15,20 +15,6 @@ function Homepage() {
         <Specials />
         <CustomersSay />
         <Chicago />
-        <button onClick={() => setOpen(true)}>
-          Open Confirm Modal
-        </button>
-
-        <ConfirmModal
-          open={open}
-          title="Leave this page?"
-          message="Your progress will not be saved."
-          onCancel={() => setOpen(false)}
-          onConfirm={() => {
-            alert('Confirmed!');
-            setOpen(false);
-          }}
-        />
       </main>
     </>
   );

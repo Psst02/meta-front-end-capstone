@@ -1,11 +1,12 @@
 import './Nav.css';
 import logo from '../logos/Logo.svg';
 import { useState, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
 import { FocusTrap } from 'focus-trap-react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+
+import GuardedLink from '../components/GuardedLink';
 
 export default function Nav() {
   const sideNavRef = useRef(null);
@@ -76,39 +77,39 @@ function NavLinks({ onNavigate }) {
   return (
     <>
       <li>
-        <NavLink to="/" onClick={onNavigate}>
+        <GuardedLink to="/" onClick={onNavigate}>
           HOME
-        </NavLink>
+        </GuardedLink>
       </li>
 
       <li>
-        <a href="/#about" onClick={onNavigate}>
+        <GuardedLink href="/#about" onClick={onNavigate}>
           ABOUT
-        </a>
+        </GuardedLink>
       </li>
 
       <li>
-        <NavLink to="/menu" onClick={onNavigate}>
+        <GuardedLink to="/menu" onClick={onNavigate}>
           MENU
-        </NavLink>
+        </GuardedLink>
       </li>
 
       <li>
-        <NavLink to="/booking" onClick={onNavigate}>
+        <GuardedLink to="/booking" onClick={onNavigate}>
           RESERVATIONS
-        </NavLink>
+        </GuardedLink>
       </li>
 
       <li>
-        <NavLink to="/order-online" onClick={onNavigate}>
+        <GuardedLink to="/order-online" onClick={onNavigate}>
           ORDER ONLINE
-        </NavLink>
+        </GuardedLink>
       </li>
 
       <li>
-        <NavLink to="/login" onClick={onNavigate}>
+        <GuardedLink to="/login" onClick={onNavigate}>
           LOGIN
-        </NavLink>
+        </GuardedLink>
       </li>
     </>
   );

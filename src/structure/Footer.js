@@ -1,6 +1,7 @@
 import './Footer.css';
 import logo from '../logos/Logo.png';
 import { NavLink } from 'react-router-dom';
+import GuardedLink from '../components/GuardedLink';
 
 export default function Footer() {
   return (
@@ -13,12 +14,12 @@ export default function Footer() {
         <nav aria-label="Footer navigation">
           <h4 className="section-title">Navigation</h4>
           <ul>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><a href="/#about">About</a></li>
-            <li><NavLink to="/menu">Menu</NavLink></li>
-            <li><NavLink to="/booking">Reservations</NavLink></li>
-            <li><NavLink to="/order-online">Order Online</NavLink></li>
-            <li><NavLink to="/login">Login</NavLink></li>
+            <li><GuardedLink to="/">Home</GuardedLink></li>
+            <li><GuardedLink href="/#about">About</GuardedLink></li>
+            <li><GuardedLink to="/menu">Menu</GuardedLink></li>
+            <li><GuardedLink to="/booking">Reservations</GuardedLink></li>
+            <li><GuardedLink to="/order-online">Order Online</GuardedLink></li>
+            <li><GuardedLink to="/login">Login</GuardedLink></li>
           </ul>
         </nav>
 

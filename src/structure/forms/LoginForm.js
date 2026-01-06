@@ -1,4 +1,5 @@
 import './Form.css';
+import { useEffect, useMemo } from 'react';
 import { useFormHelper } from './useFormHelper';
 import { Formik, useFormikContext } from "formik";
 import * as Yup from "yup";
@@ -18,23 +19,26 @@ const loginSchema = Yup.object({
   password: passwordSchema,
 });
 
-export default function LoginForm() {
+const INITIAL_VALUES = { email: '', password: '' };
+
+export default function LoginForm({ setNavDirty }) {
   return (
     <Formik
-      initialValues={{ email: '', password: '' }}
+      initialValues={INITIAL_VALUES}
       validationSchema={loginSchema}
       validateOnMount
       validateOnChange
       onSubmit={(values, { resetForm }) => {
         resetForm();
+        setNavDirty(false);
       }}
     >
-      <LoginFormContent/>
+      <LoginFormContent setNavDirty={setNavDirty}/>
     </Formik>
   );
 }
 
-function LoginFormContent() {
+function LoginFormContent({ setNavDirty }) {
   const {
     values,
     errors,
@@ -55,9 +59,14 @@ function LoginFormContent() {
     }
   }
 
-  const handleFieldChange = (e) => {
-    handleChange(e);
-  };
+  const isDirty = useMemo(() => {
+    return JSON.stringify(values) !== JSON.stringify(INITIAL_VALUES);
+  }, [values]);
+
+  useEffect(() => {
+    setNavDirty(isDirty);
+    return () => setNavDirty(false);
+  }, [isDirty, setNavDirty]);
 
   return (
     <form onSubmit={handleSubmit} noValidate>
@@ -67,7 +76,7 @@ function LoginFormContent() {
         name="email"
         value={values.email}
         onFocus={() => markInteracted("email")}
-        onChange={handleFieldChange}
+        onChange={handleChange}
         placeholder="example@gmail.com"
         className={`${fieldClass("email", errors)}`}
         autoComplete="email"
@@ -82,7 +91,7 @@ function LoginFormContent() {
         name="password"
         value={values.password}
         onFocus={() => markInteracted("password")}
-        onChange={handleFieldChange}
+        onChange={handleChange}
         className={`${fieldClass("password", errors)}`}
         autoComplete="password"
       />
