@@ -1,5 +1,5 @@
 import './Page.css';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 
 import BookingForm from '../forms/BookingForm.js';
 import ContactForm from '../forms/ContactForm.js';
@@ -38,9 +38,9 @@ export default function BookingPage({ availableTimes, dispatch, submitForm }) {
     if (isValid) setStep(s => s + 1);
   };
 
-  const updateData = (updates) => {
-    setFormData(prev => ({ ...prev, ...updates }));
-  };
+  const updateData = useCallback((updates) => {
+  setFormData(prev => ({ ...prev, ...updates }));
+}, []);
 
   return (
     <main className="green-bg">

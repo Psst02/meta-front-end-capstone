@@ -71,7 +71,7 @@ function BookingFormContent({
   useEffect(() => {
     updateData(values);
     onValidChange(isValid);
-  }, [isValid, values]);
+  }, [isValid, values, updateData, onValidChange]);
 
   return (
     <form onSubmit={handleSubmit}>
