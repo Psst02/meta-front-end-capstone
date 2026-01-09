@@ -1,6 +1,5 @@
 import './Footer.css';
 import logo from '../logos/Logo.png';
-import { NavLink } from 'react-router-dom';
 import GuardedLink from '../components/GuardedLink';
 
 export default function Footer() {
@@ -26,18 +25,18 @@ export default function Footer() {
         <address>
           <h4 className="section-title">Contact</h4>
           <ul>
-            <li><a href="#">Our Location</a></li>
-            <li><a href="#">+1-773-123-4567</a></li>
-            <li><a href="#">Email Us</a></li>
+            <li><a href="/" target="_blank" rel="noreferrer">Our Location</a></li>
+            <li><a href="/" target="_blank" rel="noreferrer">+1-773-123-4567</a></li>
+            <li><a href="/" target="_blank" rel="noreferrer">Email Us</a></li>
           </ul>
         </address>
 
         <nav aria-label="Social media links">
           <h4 className="section-title">Social Media Links</h4>
           <ul>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
+            <li><a href="/" target="_blank" rel="noreferrer">Instagram</a></li>
+            <li><a href="/" target="_blank" rel="noreferrer">Facebook</a></li>
+            <li><a href="/" target="_blank" rel="noreferrer">Twitter</a></li>
           </ul>
         </nav>
       </div>

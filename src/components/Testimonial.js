@@ -18,7 +18,7 @@ export default function Testimonial({ rating, url, username, review }) {
             ))}
           </div>
           <figure>
-            <img src={url} alt={`${username}'s profile photo`} />
+            <img src={url} alt={`${username}`} />
             <figcaption className="section-title">{username}</figcaption>
           </figure>
           <blockquote>

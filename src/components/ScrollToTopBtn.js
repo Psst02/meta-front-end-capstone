@@ -13,6 +13,7 @@ export default function ScrollToTopBtn() {
 
     window.addEventListener('scroll', toggleVisibility);
     return () => window.removeEventListener('scroll', toggleVisibility);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const scrollToTop = () => {

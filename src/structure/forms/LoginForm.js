@@ -109,7 +109,7 @@ function LoginFormContent({ setNavDirty }) {
       >
         Log In
       </button>
-      <p className="signup-txt">New user? <a href="#">Sign up</a> now</p>
+      <p className="signup-txt">New user? <a href="/" target="_blank" rel="noreferrer">Sign up</a> now</p>
     </form>
   );
 }
